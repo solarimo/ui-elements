@@ -1,15 +1,15 @@
 <?php
 /**
- * Horizontal Gallery
+ * Custom Horizontal Gallery
  * 
  * Creates a horizontal scrollable gallery
  */
 if ( ! defined( 'ABSPATH' ) ) {  exit;  }    // Exit if accessed directly
 
 
-if ( !class_exists( 'avia_sc_gallery_horizontal' ) )
+if ( !class_exists( 'custom_avia_sc_gallery_horizontal' ) )
 {
-	class avia_sc_gallery_horizontal extends aviaShortcodeTemplate
+	class custom_avia_sc_gallery_horizontal extends aviaShortcodeTemplate
 	{
 			static $hor_gallery = 0;
 
@@ -20,12 +20,12 @@ if ( !class_exists( 'avia_sc_gallery_horizontal' ) )
 			{
 				$this->config['self_closing']	=	'no';
 				
-				$this->config['name']			= __('Horizontal Gallery', 'avia_framework' );
+				$this->config['name']			= __('Custom Horizontal Gallery', 'avia_framework' );
 				$this->config['tab']			= __('Media Elements', 'avia_framework' );
 				$this->config['icon']			= AviaBuilder::$path['imagesURL']."sc-accordion-slider.png";
 				$this->config['order']			= 6;
 				$this->config['target']			= 'avia-target-insert';
-				$this->config['shortcode'] 		= 'av_horizontal_gallery';
+				$this->config['shortcode'] 		= 'custom_av_horizontal_gallery';
 				$this->config['tooltip']        = __('Creates a horizontal scrollable gallery ', 'avia_framework' );
 				$this->config['preview'] 		= false;
 				$this->config['drag-level'] 	= 3;
@@ -39,7 +39,7 @@ if ( !class_exists( 'avia_sc_gallery_horizontal' ) )
 				wp_enqueue_style( 'avia-module-slideshow' , AviaBuilder::$path['pluginUrlRoot'].'avia-shortcodes/slideshow/slideshow.css' , array('avia-layout'), false );
 
 				//load css
-				wp_enqueue_style( 'avia-module-gallery-hor' , AviaBuilder::$path['pluginUrlRoot'].'avia-shortcodes/gallery_horizontal/gallery_horizontal.css' , array('avia-module-slideshow'), false );
+				wp_enqueue_style( 'avia-module-custom-gallery-hor' , get_stylesheet_directory_uri().'/shortcodes/gallery_horizontal/gallery_horizontal.css' , array('avia-layout'), false );
 				
 					//load js
 				wp_enqueue_script( 'avia-module-gallery-hor' , AviaBuilder::$path['pluginUrlRoot'].'avia-shortcodes/gallery_horizontal/gallery_horizontal.js' , array('avia-shortcodes'), false, TRUE );
@@ -430,7 +430,7 @@ if ( !class_exists( 'avia_sc_gallery_horizontal' ) )
 									$output .= '<a href="' . $custom_link . '"' . $target . '>';
 								}
 								
-								$output .= "<img class='av-horizontal-gallery-img' ";
+								$output .= "<img class='my-super-secret-class av-horizontal-gallery-img' ";
 								$output .= "width='".$img[1]."' height='".$img[2]."' src='".$img[0]."' title='".$title."' alt='".$alt."' />";	
 								
 								// @author Martin Gressler, custom caption hack
