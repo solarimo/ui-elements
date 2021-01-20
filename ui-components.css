@@ -1,0 +1,26 @@
+.ui-buttons {
+    display: flex;
+    margin: 20px auto;
+}
+
+.ui-buttons a.ui-btn {
+    padding: 11px;
+    background-color: #ffe200;
+    color: #072a41 !important;
+    transition: background-color .15s !important;
+    text-align: center;
+    flex: 1;
+    text-transform: uppercase;
+}
+
+.ui-buttons a.ui-btn:not(:last-child) {
+    margin-right: 10px;
+}
+
+.ui-buttons a.ui-btn::after {
+    content: none !important;
+}
+
+.ui-buttons a.ui-btn:hover {
+    background-color: #dbc200;
+}
